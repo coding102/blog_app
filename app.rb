@@ -5,3 +5,7 @@ require 'sinatra'
 get '/' do
     erb :home
 end
+
+post '/sign-in' do
+    puts "my params are" + params.inspect
+end
