@@ -5,7 +5,7 @@
         <title>tab title</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="javascript/index.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="css/home.css">
     </head>
 	
 		  <body>
@@ -13,13 +13,27 @@
     <div id="content">
         
         
-        <form method="POST" action="/sign-in">
-            <label for="username">Username</label>
-            <input type="text" name="username">
-            <label for="password">Password</label>
-            <input type="password" name="password">
-            <input type="submit">
-        </form>
+        
+        <div id="form"> 
+            
+            <img src="images/phone.png"> 
+            
+            <form method="POST" action="/sign-in">
+                <label for="username">Username</label>
+                <input type="text" placeholder="username"name="username">
+                
+                <br>
+                
+                <label for="password">Password</label>
+                <input type="password" placeholder="password" name="password">
+                <input type="submit">
+                
+                <br><br>
+                
+                <a href="">Don't have an account? Sign up here.</a>
+            </form>
+                        
+        </div>
         
         
         <div id="footer">
@@ -33,7 +47,6 @@
                     <li><a href= "">Terms</a></li>
                 </ul>
             </div>
-        
         
         </div><!--end footer-->
         
