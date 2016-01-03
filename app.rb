@@ -16,7 +16,7 @@ get '/signup' do
 end
 
 
-get '/forum' do
+get '/blog' do
     erb :signedin
 end
 
@@ -24,3 +24,4 @@ end
 get '/myaccount' do
     erb :myaccount
 end
+
