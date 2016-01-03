@@ -10,3 +10,17 @@ get '/' do
     erb :home
 end
 
+
+get '/signup' do
+    erb :signup
+end
+
+
+get '/forum' do
+    erb :signedin
+end
+
+
+get '/myaccount' do
+    erb :myaccount
+end

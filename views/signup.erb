@@ -2,10 +2,10 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Home</title>
+        <title>Register</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="javascript/index.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/signup.css">
     </head>
 	
 		  <body>
@@ -16,25 +16,35 @@
         
         <div id="form"> 
             
-            <img src="images/phone.png"> 
-            
             <form method="POST" action="/sign-in">
                 <label for="username">Username</label>
+                    <br>
                 <input type="text" placeholder="username"name="username">
-                
-                <br>
-                
-                <label for="password">Password</label>
-                <input type="password" placeholder="password" name="password">
-                <input type="submit">
                 
                 <br><br>
                 
-                <a href="">Don't have an account? Sign up here.</a>
+                <label for="email">Email</label>
+                    <br>
+                <input type="email" placeholder="email" name="email">
+                
+                <br><br>
+                
+                <label for="password">Password</label>
+                    <br>
+                <input type="password" placeholder="password" name="password">
+                
+                <br><br>
+                
+                <label for="password">Confirm Password</label>
+                    <br>
+                <input type="password" placeholder="password" name="password">
+                    <br><br>
+                <input type="submit">
+                
+                <br>
             </form>
                         
         </div>
-        
         
         <div id="footer">
             
