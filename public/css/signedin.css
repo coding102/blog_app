@@ -25,6 +25,19 @@ body, #content {
     background-color: aqua;
 }
 
+#sidebar {
+    float: left;
+    width: 150px;
+    height: 91%;
+    border: 2px solid red;
+    margin-left: 2px;
+}
+
+#sidebar h3 {
+    color: blue;
+    padding-left: 40px;
+}
+
 #text {
     width: 720px;
     margin: 0 auto;
