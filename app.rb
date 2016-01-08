@@ -1,9 +1,11 @@
 #create "Gemfile" file, add "gem 'sinatra'", and run bundle install
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'sinatra/flash'
 set :database, "sqlite3:myblogdb.sqlite3"
 require './models'
 enable :sessions
+set :sessions, true
 
 
 
@@ -35,30 +37,6 @@ end
 get '/settings' do
     erb :settings
 end
-
-
-
-#get '/registration' do
-#	erb :registration, :layout => nil
-#end
-#
-#post '/settings' do
-#		#this creates the profile in database
-#		@profile = Profile.create(bio: params[:bio], picture: params[:picture], bg_color: params[:bg_color], text_color: params[:text_color], user_id: session[:user_id])
-#		erb :userpage
-#
-#end
-#
-#	#this is the registration page where they enter their details
-#	#this should be passed through to the current_user
-#post '/registration' do
-#
-#	@user = User.create(email: params[:email], password: params[:password], name: params[:name], city: params[:city])
-#	@user.profile = Profile.create(name: params[:name], city: params[:city])
-#		erb :home
-#	redirect '/'
-#end	
-
 
 
 
