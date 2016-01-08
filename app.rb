@@ -21,14 +21,11 @@ end
 
 
 
-
 #recent 10 posts
 #get '/' do
 #	   @posts = Post.order(id: :desc).take(10)
 #	   erb :home
 #end
-
-
 
 
 
@@ -48,36 +45,35 @@ post '/signedin' do
 		  end
 end
 
-
 get '/signedin' do
     erb :signedin
 end
+
+
+
+
 
 
 get '/signup' do
     erb :signup
 end
 
-
-
-
-
 post '/sign_up' do
-	   @user = User.where(username: params[:username]).first
+    @user = User.where(fname: params[:fname]).first
 	   if @user.nil?
-		      @user = User.create(username: params[:username], password: params[:password], email: params[:email], zipcode: params[:zipcode])
+        @user = User.create(fname: params[:fname], email: params[:email], username: params[:username], password: params[:password])
 		flash[:notice] = 'Congratulations! You have successfully signed up and edited your profile.'	
-		@profile = Profile.create(fname: params[:fname], city: params[:city], birthday: params[:birthday], lname: params[:lname])
-		@user.profile = @profile
-		@user.save
-		erb :edit_profile
+		      @profile = Profile.create(fname: params[:fname], city: params[:city], birthday: params[:birthday], lname: params[:lname])
+		      @user.profile = @profile
+		      @user.save
+		  erb :edit_profile
 	else
-		flash[:alert] = 'The username: #{params[:username] has been taken'
-		redirect '/sign_up_failed'
+		  flash[:alert] = 'The username: #{params[:username] has been taken'
+		  redirect '/sign_up_failed'
 	end
-		session[:user_id] = @user.id
-		current_user
-		erb :edit_profile
+		  session[:user_id] = @user.id
+		  current_user
+		  erb :edit_profile
 end
 
 
