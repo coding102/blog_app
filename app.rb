@@ -30,17 +30,18 @@ end
 
 
 # sign in rules
-get '/home' do
+get '/' do
     erb :home
 end
 
 post '/signedin' do
 	   @user = User.where(username: params[:username]).first
-		  if @user.password == params[:password]
+    if @user && @user.password == params[:password]
 			     session[:user_id] = @user.id
 			     current_user
         redirect '/signedin'
 		  else
+        flash[:alert] = "username and/or password is incorrect"
         redirect '/signup'
 		  end
 end
@@ -51,29 +52,13 @@ end
 
 
 
-
-
-
 get '/signup' do
     erb :signup
 end
 
-post '/sign_up' do
-    @user = User.where(fname: params[:fname]).first
-	   if @user.nil?
-        @user = User.create(fname: params[:fname], email: params[:email], username: params[:username], password: params[:password])
-		flash[:notice] = 'Congratulations! You have successfully signed up and edited your profile.'	
-		      @profile = Profile.create(fname: params[:fname], city: params[:city], birthday: params[:birthday], lname: params[:lname])
-		      @user.profile = @profile
-		      @user.save
-		  erb :edit_profile
-	else
-		  flash[:alert] = 'The username: #{params[:username] has been taken'
-		  redirect '/sign_up_failed'
-	end
-		  session[:user_id] = @user.id
-		  current_user
-		  erb :edit_profile
+post '/signup' do
+    User.create(params[:user])
+    redirect '/'
 end
 
 
@@ -82,26 +67,6 @@ end
 
 
 
-
-
-
-
-
-
-
-#
-#
-#get '/settings' do
-#    erb :settings
-#end
-#
-#
-#
-#
-##signup page if you are a new user
-#get '/signup' do
-#    erb :signup
-#end
 
 
 
